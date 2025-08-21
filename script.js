@@ -47,11 +47,32 @@ function drawSnake() {
     for (let i = 0; i < snake.length; i++) {
         ctx.fillStyle = snakeColor;
         ctx.strokeStyle = snakeBorder;
-        ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize);
+        ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize)
     }
 };
 
-function changeDirection() {};
+function changeDirection(event) {
+    switch (event.code) {
+        case "ArrowLeft":
+            xVelocity = -unitSize;
+            yVelocity = 0;
+            break;
+        case "ArrowUp":
+            xVelocity = 0;
+            yVelocity = -unitSize;
+            break;
+        case "ArrowRight":
+            xVelocity = unitSize;
+            yVelocity = 0;
+            break;
+        case "ArrowDown":
+            xVelocity = 0;
+            yVelocity = unitSize;
+            break;
+        default:
+            break;
+    }
+};
 function checkGameOver() {};
 function displayGameOver() {};
 function restartGame() {};
