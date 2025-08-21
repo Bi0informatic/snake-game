@@ -2,6 +2,9 @@ const gameCanvas = document.getElementById("game-canvas");
 const ctx = gameCanvas.getContext("2d");
 const scoreText = document.getElementById("score-text");
 const restartButton = document.getElementById("restart-button");
+const easyButton = document.getElementById("easy-button");
+const normalButton = document.getElementById("normal-button");
+const hardButton = document.getElementById("hard-button");
 const gameWidth = gameCanvas.width;
 const gameHeight = gameCanvas.height;
 const boardBackground = "#b7a148"
@@ -16,6 +19,7 @@ let yVelocity = 0;
 let foodX;
 let foodY;
 let timeoutId;
+let tickSpeed = 85;
 let snake = [
     {x:unitSize * 2, y: unitSize * 10},
     {x:unitSize, y: unitSize * 10},
@@ -25,6 +29,9 @@ let snake = [
 
 window.addEventListener("keydown", changeDirection);
 restartButton.addEventListener("click", restartGame);
+easyButton.addEventListener("click", ()=> {tickSpeed = 100; restartGame()});
+normalButton.addEventListener("click", ()=> {tickSpeed = 90; restartGame()});
+hardButton.addEventListener("click", ()=> {tickSpeed = 80; restartGame()});
 window.addEventListener("keydown", (event)=>{
     if (event.key === " " || event.code === "Space") {
         restartGame();
@@ -49,7 +56,7 @@ function nextTick() {
             drawSnake();
             checkGameOver();
             nextTick();
-        }, 75)
+        }, tickSpeed)
         if (score == 397) {
             clearTimeout(timeoutId);
             displayWin();
