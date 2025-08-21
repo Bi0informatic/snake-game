@@ -16,11 +16,9 @@ let yVelocity = 0;
 let foodX;
 let foodY;
 let snake = [
-    {x:unitSize * 4, y:0},
-    {x:unitSize * 3, y:0},
-    {x:unitSize * 2, y:0},
-    {x:unitSize, y:0},
-    {x:0, y:0},
+    {x:unitSize * 2, y: unitSize * 10},
+    {x:unitSize, y: unitSize * 10},
+    {x:0, y: unitSize * 10},
 ];
 
 window.addEventListener("keydown", changeDirection);
@@ -154,11 +152,9 @@ function displayGameOver() {
 };
 function restartGame() {
     snake = [
-        {x:unitSize * 4, y:0},
-        {x:unitSize * 3, y:0},
-        {x:unitSize * 2, y:0},
-        {x:unitSize, y:0},
-        {x:0, y:0},
+        {x:unitSize * 2, y: unitSize * 10},
+        {x:unitSize, y: unitSize * 10},
+        {x:0, y: unitSize * 10},
     ];
     xVelocity = unitSize;
     yVelocity = 0;
