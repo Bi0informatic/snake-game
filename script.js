@@ -82,9 +82,10 @@ function moveSnake() {
 };
 
 function drawSnake() {
+    ctx.fillStyle = snakeColor;
+    ctx.strokeStyle = snakeBorder;
+
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = snakeColor;
-        ctx.strokeStyle = snakeBorder;
         ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize);
     }
 };
