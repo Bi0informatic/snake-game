@@ -30,14 +30,23 @@ gameStart();
 
 function gameStart() {
     clearBoard();
-    drawSnake();
+    while (running) {
+        drawSnake();
+    }
 };
 function nextTick() {};
 function clearBoard() {
     ctx.fillStyle = boardBackground; 
     ctx.fillRect(0, 0, gameWidth, gameHeight);
 };
-function createFood() {};
+function createFood() {
+    function randomFood(min, max) {
+        const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
+        return randNum;
+    }
+    foodX = randomFood(0, gameWidth - unitSize);
+    foodY = randomFood(0, gameHeight - unitSize);
+};
 function drawFood() {};
 function moveSnake() {
 
