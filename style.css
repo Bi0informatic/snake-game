@@ -18,7 +18,7 @@ body {
     margin-top: 10px;
 }
 
-#restart-button {
+.button {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     width: 100px;
@@ -26,6 +26,16 @@ body {
     border: 3.5px solid black;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.difficulty {
+    display:block;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+#restart-button {
+    background-color:#EE90EE;
 }
 
 #score-text::before {
