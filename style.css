@@ -6,18 +6,18 @@ body {
     text-align: center;
 }
 
-#gameCanvas {
+#game-canvas {
     border: 3px solid black;
 }
 
-#score {
+#score-text {
     font-family:'Times New Roman', Times, serif;
     font-size: 50px;
     color: black;
     margin-top: 10px;
 }
 
-#restartBtn {
+#restart-button {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     width: 100px;
