@@ -66,18 +66,18 @@ function drawFood() {
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
 };
 function moveSnake() {
-    let prevX = snake[0].x;
-    let prevY = snake[0].y;
-    snake[0].x += xVelocity;
-    snake[0].y += yVelocity;
-    
-    for (let i = 1; i < snake.length; i++) {
-        let tempX = snake[i].x;
-        let tempY = snake[i].y;
-        snake[i].x = prevX;
-        snake[i].y = prevY;
-        prevX = tempX;
-        prevY = tempY;
+    const head = { 
+        x: snake[0].x + xVelocity,
+        y: snake[0].y + yVelocity
+    }
+    snake.unshift(head);
+
+    if (snake[0].x == foodX && snake[0].y == foodY) {
+        score += 1;
+        scoreText.textContent = score;
+        createFood();
+    } else {
+        snake.pop();
     }
 };
 
@@ -87,6 +87,7 @@ function drawSnake() {
 
     for (let i = 0; i < snake.length; i++) {
         ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize);
+        ctx.strokeRect(snake[i].x, snake[i].y, unitSize, unitSize);
     }
 };
 
