@@ -24,6 +24,11 @@ let timeoutId;
 
 window.addEventListener("keydown", changeDirection);
 restartButton.addEventListener("click", restartGame);
+window.addEventListener("keydown", (event)=>{
+    if (event.key === " " || event.code === "Space") {
+        restartGame();
+    }
+});
 
 gameStart();
 
