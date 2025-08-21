@@ -1,6 +1,7 @@
 const gameCanvas = document.getElementById("game-canvas");
 const ctx = gameCanvas.getContext("2d");
 const scoreText = document.getElementById("score-text");
+const highscoreText = document.getElementById("highscore-text");
 const restartButton = document.getElementById("restart-button");
 const easyButton = document.getElementById("easy-button");
 const normalButton = document.getElementById("normal-button");
@@ -13,6 +14,7 @@ const snakeBorder = "black";
 const foodColor = "red";
 const unitSize = 25;
 let score = 0;
+let highscore = localStorage.getItem("highscore") || 0;
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
@@ -38,6 +40,7 @@ window.addEventListener("keydown", (event)=>{
     }
 });
 
+highscoreText.textContent = highscore;
 gameStart();
 
 function gameStart() {
@@ -50,6 +53,7 @@ function gameStart() {
 function nextTick() {
     if (running) {
         timeoutId = setTimeout (() => {
+            updateHighscore();
             clearBoard();
             drawFood();
             moveSnake();
@@ -65,6 +69,15 @@ function nextTick() {
         displayGameOver();
     }
 };
+
+function updateHighscore() {
+    if (score > highscore) {
+        highscore = score;
+        highscoreText.textContent = highscore;
+        localStorage.setItem("highscore", highscore);
+    }
+}
+
 function clearBoard() {
     ctx.fillStyle = boardBackground; 
     ctx.fillRect(0, 0, gameWidth, gameHeight);
