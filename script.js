@@ -66,9 +66,18 @@ function drawFood() {
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
 };
 function moveSnake() {
-    for (let i = 0; i < snake.length; i++) {
-        snake[i].x += xVelocity;
-        snake[i].y += yVelocity;
+    let prevX = snake[0].x;
+    let prevY = snake[0].y;
+    snake[0].x += xVelocity;
+    snake[0].y += yVelocity;
+    
+    for (let i = 1; i < snake.length; i++) {
+        let tempX = snake[i].x;
+        let tempY = snake[i].y;
+        snake[i].x = prevX;
+        snake[i].y = prevY;
+        prevX = tempX;
+        prevY = tempY;
     }
 };
 
