@@ -11,8 +11,7 @@ body {
     border: 3px solid black;
 }
 
-#score-text {
-    font-family:'Times New Roman', Times, serif;
+.scoreText {
     font-size: 50px;
     color: black;
     margin-top: 10px;
@@ -38,6 +37,18 @@ body {
     background-color:#EE90EE;
 }
 
+#score-text {
+    font-family:'Times New Roman', Times, serif;
+}
+
 #score-text::before {
     content: "🍎: ";
+}
+
+#highscore-text{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#highscore-text::before {
+    content: "HIGHSCORE: "
 }
