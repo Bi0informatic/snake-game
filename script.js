@@ -15,12 +15,13 @@ let xVelocity = unitSize;
 let yVelocity = 0;
 let foodX;
 let foodY;
+let timeoutId;
 let snake = [
     {x:unitSize * 2, y: unitSize * 10},
     {x:unitSize, y: unitSize * 10},
     {x:0, y: unitSize * 10},
 ];
-let timeoutId;
+
 
 window.addEventListener("keydown", changeDirection);
 restartButton.addEventListener("click", restartGame);
@@ -157,7 +158,7 @@ function displayGameOver() {
     ctx.font = "50px Times New Roman";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("YOU WON!", gameWidth/2, gameHeight/2);
+    ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
     running = false;
 };
 
@@ -165,7 +166,7 @@ function displayWin() {
     ctx.font = "50px Times New Roman";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("WINNER!", gameWidth/2, gameHeight/2);
+    ctx.fillText("YOu WON!", gameWidth/2, gameHeight/2);
     running = false;
 }
 function restartGame() {
