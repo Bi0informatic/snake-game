@@ -1,5 +1,5 @@
 const gameCanvas = document.getElementById("game-canvas");
-const context = gameCanvas.getContext("2d");
+const ctx = gameCanvas.getContext("2d");
 const scoreText = document.getElementById("score-text");
 const restartButton = document.getElementById("restart-button");
 const gameWidth = gameCanvas.width;
@@ -28,13 +28,29 @@ restartButton.addEventListener("click", restartGame);
 
 gameStart();
 
-function gameStart() {};
+function gameStart() {
+    clearBoard();
+    drawSnake();
+};
 function nextTick() {};
-function clearBoard() {};
+function clearBoard() {
+    ctx.fillStyle = boardBackground; 
+    ctx.fillRect(0, 0, gameWidth, gameHeight);
+};
 function createFood() {};
 function drawFood() {};
-function moveSnake() {};
-function drawSnake() {};
+function moveSnake() {
+
+};
+
+function drawSnake() {
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = snakeColor;
+        ctx.strokeStyle = snakeBorder;
+        ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize);
+    }
+};
+
 function changeDirection() {};
 function checkGameOver() {};
 function displayGameOver() {};
