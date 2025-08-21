@@ -1,0 +1,28 @@
+body {
+    background-color: #90EE90;
+}
+
+#container {
+    text-align: center;
+}
+
+#gameCanvas {
+    border: 3px solid black;
+}
+
+#score {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: black;
+    margin-top: 10px;
+}
+
+#restartBtn {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    border: 3.5px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
