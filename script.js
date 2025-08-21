@@ -20,6 +20,7 @@ let snake = [
     {x:unitSize, y: unitSize * 10},
     {x:0, y: unitSize * 10},
 ];
+let timeOutId;
 
 window.addEventListener("keydown", changeDirection);
 restartButton.addEventListener("click", restartGame);
@@ -35,7 +36,7 @@ function gameStart() {
 };
 function nextTick() {
     if (running) {
-        setTimeout (() => {
+        timeOutId = setTimeout (() => {
             clearBoard();
             drawFood();
             moveSnake();
@@ -159,5 +160,6 @@ function restartGame() {
     xVelocity = unitSize;
     yVelocity = 0;
     score = 0;
+    clearTimeout(timeOutId);
     gameStart();
 };
