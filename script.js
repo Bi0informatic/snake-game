@@ -20,7 +20,7 @@ let snake = [
     {x:unitSize, y: unitSize * 10},
     {x:0, y: unitSize * 10},
 ];
-let timeOutId;
+let timeoutId;
 
 window.addEventListener("keydown", changeDirection);
 restartButton.addEventListener("click", restartGame);
@@ -36,7 +36,7 @@ function gameStart() {
 };
 function nextTick() {
     if (running) {
-        timeOutId = setTimeout (() => {
+        timeoutId = setTimeout (() => {
             clearBoard();
             drawFood();
             moveSnake();
@@ -44,6 +44,10 @@ function nextTick() {
             checkGameOver();
             nextTick();
         }, 75)
+        if (score == 397) {
+            clearTimeout(timeoutId);
+            displayWin();
+        }
     } else {
         displayGameOver();
     }
@@ -148,9 +152,17 @@ function displayGameOver() {
     ctx.font = "50px Times New Roman";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
-    ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
+    ctx.fillText("YOU WON!", gameWidth/2, gameHeight/2);
     running = false;
 };
+
+function displayWin() {
+    ctx.font = "50px Times New Roman";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("WINNER!", gameWidth/2, gameHeight/2);
+    running = false;
+}
 function restartGame() {
     snake = [
         {x:unitSize * 2, y: unitSize * 10},
@@ -160,6 +172,6 @@ function restartGame() {
     xVelocity = unitSize;
     yVelocity = 0;
     score = 0;
-    clearTimeout(timeOutId);
+    clearTimeout(timeoutId);
     gameStart();
 };
