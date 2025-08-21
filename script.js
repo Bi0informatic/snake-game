@@ -30,9 +30,12 @@ gameStart();
 
 function gameStart() {
     clearBoard();
+    /*
     while (running) {
         drawSnake();
     }
+    */
+   drawSnake();
 };
 function nextTick() {};
 function clearBoard() {
@@ -47,7 +50,10 @@ function createFood() {
     foodX = randomFood(0, gameWidth - unitSize);
     foodY = randomFood(0, gameHeight - unitSize);
 };
-function drawFood() {};
+function drawFood() {
+    ctx.fillStyle = foodColor;
+    ctx.fillRect(foodX, foodY, unitSize, unitSize);
+};
 function moveSnake() {
 
 };
@@ -56,7 +62,7 @@ function drawSnake() {
     for (let i = 0; i < snake.length; i++) {
         ctx.fillStyle = snakeColor;
         ctx.strokeStyle = snakeBorder;
-        ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize)
+        ctx.fillRect(snake[i].x, snake[i].y, unitSize, unitSize);
     }
 };
 
