@@ -93,21 +93,29 @@ function drawSnake() {
 
 function changeDirection(event) {
     switch (event.code) {
-        case "ArrowLeft":
-            xVelocity = -unitSize;
-            yVelocity = 0;
+        case "ArrowLeft" :
+            if (xVelocity == 0) {
+                xVelocity = -unitSize;
+                yVelocity = 0;
+            }
             break;
         case "ArrowUp":
-            xVelocity = 0;
-            yVelocity = -unitSize;
+            if (yVelocity == 0) {
+                xVelocity = 0;
+                yVelocity = -unitSize;
+            }
             break;
         case "ArrowRight":
-            xVelocity = unitSize;
-            yVelocity = 0;
+            if (xVelocity == 0) {
+                xVelocity = unitSize;
+                yVelocity = 0;
+            }
             break;
         case "ArrowDown":
-            xVelocity = 0;
-            yVelocity = unitSize;
+            if (yVelocity == 0) {
+                xVelocity = 0;
+                yVelocity = unitSize;
+            }
             break;
         default:
             break;
