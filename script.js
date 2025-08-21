@@ -138,8 +138,20 @@ function checkGameOver() {
         default:
             break;
     }
+
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+            running = false;
+        }
+    }
 };
-function displayGameOver() {};
+function displayGameOver() {
+    ctx.font = "50px Times New Roman";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
+    running = false;
+};
 function restartGame() {
     snake = [
         {x:unitSize * 4, y:0},
