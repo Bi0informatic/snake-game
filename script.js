@@ -29,15 +29,26 @@ restartButton.addEventListener("click", restartGame);
 gameStart();
 
 function gameStart() {
-    clearBoard();
-    /*
-    while (running) {
-        drawSnake();
-    }
-    */
-   drawSnake();
+    running = true;
+    scoreText.textContent = score;
+    createFood();
+    drawFood();
+    nextTick();
 };
-function nextTick() {};
+function nextTick() {
+    if (running) {
+        setTimeout (() => {
+            clearBoard();
+            drawFood();
+            moveSnake();
+            drawSnake();
+            checkGameOver();
+            nextTick();
+        }, 75)
+    } else {
+        displayGameOver();
+    }
+};
 function clearBoard() {
     ctx.fillStyle = boardBackground; 
     ctx.fillRect(0, 0, gameWidth, gameHeight);
