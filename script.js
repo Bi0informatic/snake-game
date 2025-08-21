@@ -121,6 +121,35 @@ function changeDirection(event) {
             break;
     }
 };
-function checkGameOver() {};
+function checkGameOver() {
+    switch (true) {
+        case (snake[0].x < 0):
+            running = false;
+            break;
+        case (snake[0].y < 0):
+            running = false;
+            break;
+        case (snake[0].x >= gameWidth):
+            running = false;
+            break;
+        case (snake[0].y >= gameHeight):
+            running = false;
+            break;
+        default:
+            break;
+    }
+};
 function displayGameOver() {};
-function restartGame() {};
+function restartGame() {
+    snake = [
+        {x:unitSize * 4, y:0},
+        {x:unitSize * 3, y:0},
+        {x:unitSize * 2, y:0},
+        {x:unitSize, y:0},
+        {x:0, y:0},
+    ];
+    xVelocity = unitSize;
+    yVelocity = 0;
+    score = 0;
+    gameStart();
+};
