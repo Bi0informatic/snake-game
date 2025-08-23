@@ -128,10 +128,22 @@ function changeDirection(event) {
                 yVelocity = 0;
             }
             break;
+        case "KeyA" :
+            if (!xVelocity) {
+                xVelocity = -unitSize;
+                yVelocity = 0;
+            }
+            break;
         case "ArrowUp":
             if (!yVelocity) {
                 xVelocity = 0;
                 yVelocity = -unitSize;
+            }
+            break;
+        case "KeyW" :
+            if (!xVelocity) {
+                xVelocity = -unitSize;
+                yVelocity = 0;
             }
             break;
         case "ArrowRight":
@@ -140,10 +152,22 @@ function changeDirection(event) {
                 yVelocity = 0;
             }
             break;
+        case "KeyD" :
+            if (!xVelocity) {
+                xVelocity = -unitSize;
+                yVelocity = 0;
+            }
+            break;
         case "ArrowDown":
             if (!yVelocity) {
                 xVelocity = 0;
                 yVelocity = unitSize;
+            }
+            break;
+        case "KeyS" :
+            if (!xVelocity) {
+                xVelocity = -unitSize;
+                yVelocity = 0;
             }
             break;
         default:
